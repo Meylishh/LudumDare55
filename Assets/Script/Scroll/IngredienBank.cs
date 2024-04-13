@@ -6,6 +6,7 @@ namespace Script.Scroll
     public class IngredientBank : MonoBehaviour
     {
         public RectTransform WorkspaceZone;
+        public RectTransform AssemblyZone;
         public Vector2 spawnPosition;
         public static IngredientBank Instance { get; private set; }
 

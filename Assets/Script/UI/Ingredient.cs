@@ -20,12 +20,17 @@ public class Ingredient : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         draggableObjectRectTransform.anchoredPosition += eventData.delta;
     }
-    
+
     public void OnEndDrag(PointerEventData eventData)
-    { 
+    {
+        CheckOverlapWithZone(IngredientBank.Instance.WorkspaceZone);
+    }
+
+    private void CheckOverlapWithZone(RectTransform zoneRect)
+    {
         var childPosition = draggableObjectRectTransform.localPosition;
-        var parentMin = IngredientBank.Instance.WorkspaceZone.rect.min;
-        var parentMax = IngredientBank.Instance.WorkspaceZone.rect.max;
+        var parentMin = zoneRect.rect.min;
+        var parentMax = zoneRect.rect.max;
 
         if (childPosition.x < parentMin.x || childPosition.x > parentMax.x ||
             childPosition.y < parentMin.y || childPosition.y > parentMax.y)
@@ -39,8 +44,6 @@ public class Ingredient : MonoBehaviour, IDragHandler, IEndDragHandler
             lastFixedPosition = draggableObjectRectTransform.anchoredPosition;
             draggableObjectRectTransform.anchoredPosition = lastFixedPosition;
         }
-        
     }
-
     
 }
