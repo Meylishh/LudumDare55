@@ -10,14 +10,12 @@ public class ChangeScreen : MonoBehaviour
 {
     [SerializeField] private Button changeScreenButton;
     [SerializeField] private float slideDownAmount;
+    [SerializeField] private float slideUpAmount;
     [SerializeField] private float slideDuration;
-    private GameObject cameraObject;
-    private float slideOriginalPosition;
+    [SerializeField] private GameObject screensObject;
     private bool workspaceActive;
     private void Start()
     {
-        cameraObject = Camera.main.gameObject;
-        slideOriginalPosition = cameraObject.transform.position.y;
         changeScreenButton.onClick.AddListener(SlideScreen);
     }
 
@@ -30,14 +28,14 @@ public class ChangeScreen : MonoBehaviour
         if (!workspaceActive)
         {
             changeScreenButton.interactable = false;
-            await cameraObject.transform.DOMoveY(-slideDownAmount, slideDuration);
+            await screensObject.transform.DOMoveY(slideDownAmount, slideDuration);
             changeScreenButton.interactable = true;
             workspaceActive = true;
         }
         else
         {
             changeScreenButton.interactable = false;
-            await cameraObject.transform.DOMoveY(slideOriginalPosition, slideDuration);
+            await screensObject.transform.DOMoveY(slideUpAmount, slideDuration);
             changeScreenButton.interactable = true;
             workspaceActive = false;
         }
