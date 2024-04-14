@@ -8,6 +8,7 @@ namespace Script.Scroll
         public RectTransform Zones;
         public RectTransform WorkspaceZone;
         public RectTransform AssemblyZone;
+        public RectTransform TrashBinZone;
         [SerializeField] private GameObject spawnPosition;
 
         public Burger Burger;

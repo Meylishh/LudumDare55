@@ -10,6 +10,7 @@ namespace Script
     public class Burger: MonoBehaviour, IDragHandler, IEndDragHandler
     {
         [SerializeField] private List<Ingredient> correctIngredients;
+        [SerializeField] private RectTransform trashZone;
         private List<Ingredient> currentIngredients = new();
             
         private RectTransform draggableObjectRectTransform;
@@ -17,26 +18,33 @@ namespace Script
 
         [SerializeField] private int maxIngredientCount;
         private int currentIngredientCount;
-
-        public UnityAction OnIngredientAdded;
+        
         
         private void Start()
         {
             draggableObjectRectTransform = gameObject.GetComponent<RectTransform>();
             originalPosition = draggableObjectRectTransform.anchoredPosition;
-
-            OnIngredientAdded += CheckIngredients;
         }
 
         public void AddIngredient(GameObject ingredientObject)
         {
-            ingredientObject.transform.SetParent(gameObject.transform);
-            var ingredient = ingredientObject.GetComponent<Ingredient>();
-            currentIngredients.Add(ingredient);
+            if (currentIngredientCount < maxIngredientCount)
+            {
+                //todo: check if FIRST/LAST ingredient is bread
+                
+                ingredientObject.transform.SetParent(gameObject.transform);
+                var ingredient = ingredientObject.GetComponent<Ingredient>();
+                currentIngredients.Add(ingredient);
             
-            ingredient.enabled = false;
-            currentIngredientCount++;
-            OnIngredientAdded.Invoke();
+                ingredient.enabled = false;
+                currentIngredientCount++;
+                CheckIngredients();
+            }
+            else
+            {
+                //todo: message or animation of that you can't add more ingredients
+                Debug.Log("Max ingredients reached");
+            }
         }
 
         private void CheckIngredients()
@@ -79,9 +87,26 @@ namespace Script
         
         public void OnEndDrag(PointerEventData eventData)
         {
-            //todo: Check if overlaps with trash bin 
+            if (OverlapsWithZone(trashZone))
+            {
+                OnBurgerDestroy();
+                return;
+            }
+            
             draggableObjectRectTransform.anchoredPosition = originalPosition;
         }
         
+        
+        private bool OverlapsWithZone(RectTransform zoneRect)
+        {
+            if (RectTransformUtility.RectangleContainsScreenPoint(draggableObjectRectTransform, zoneRect.position) 
+                || RectTransformUtility.RectangleContainsScreenPoint(zoneRect, draggableObjectRectTransform.position))
+            {
+                return true;
+            }
+
+            Debug.Log("Images do not overlap.");
+            return false;
+        }
     }
 }

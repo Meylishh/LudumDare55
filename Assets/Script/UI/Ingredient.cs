@@ -28,22 +28,11 @@ public class Ingredient : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        //todo: check overlap with trash bin
-        /*if (OverlapsWithAssembly(IngredientBank.Instance.AssemblyZone))
+        if (OverlapsWithZone(IngredientBank.Instance.TrashBinZone))
         {
-            Debug.Log("Assembly overlap");
+            OnIngredientDestroy();
             return;
         }
-        
-        if (!OverlapsWithWorkspace(IngredientBank.Instance.WorkspaceZone))
-        {
-            draggableObjectRectTransform.anchoredPosition = lastFixedPosition;
-        }
-        else
-        {
-            lastFixedPosition = draggableObjectRectTransform.anchoredPosition;
-            draggableObjectRectTransform.anchoredPosition = lastFixedPosition;
-        }*/
 
         if (OverlapsWithZone(IngredientBank.Instance.AssemblyZone))
         {
@@ -63,14 +52,11 @@ public class Ingredient : MonoBehaviour, IDragHandler, IEndDragHandler
         if (RectTransformUtility.RectangleContainsScreenPoint(draggableObjectRectTransform, zoneRect.position) 
             || RectTransformUtility.RectangleContainsScreenPoint(zoneRect, draggableObjectRectTransform.position))
         {
-            Debug.Log("Images overlap!");
             return true;
         }
-        else
-        {
-            Debug.Log("Images do not overlap.");
-            return false;
-        }
+
+        Debug.Log("Images do not overlap.");
+        return false;
     }
     
 

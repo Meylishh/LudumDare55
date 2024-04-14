@@ -474,6 +474,41 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2728360935157682474, guid: 7e1917318af6fa043b84bbb26821882a, type: 3}
   m_PrefabInstance: {fileID: 170198469}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &361297888
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 361297889}
+  m_Layer: 5
+  m_Name: TrashBinZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &361297889
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 361297888}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 363511772}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -1511.6272, y: -202.39}
+  m_SizeDelta: {x: 665.1848, y: 404.78}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &363511771
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +538,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1356591866}
+  - {fileID: 361297889}
   m_Father: {fileID: 1671385232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -908,6 +944,7 @@ RectTransform:
   m_Children:
   - {fileID: 25089377}
   - {fileID: 2007200685}
+  - {fileID: 1089846168}
   m_Father: {fileID: 1101458811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1862,6 +1899,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.4485582
       objectReference: {fileID: 0}
+    - target: {fileID: 7049332996455692378, guid: 1e5ae477b7d017941be68ec35cd7252b, type: 3}
+      propertyPath: ingredientToSpawnPrefab
+      value: 
+      objectReference: {fileID: 3184142357048897101, guid: 154fdefa2959af246a1c3f4b2458262a, type: 3}
     - target: {fileID: 8562703834322610355, guid: 1e5ae477b7d017941be68ec35cd7252b, type: 3}
       propertyPath: m_Color.b
       value: 0.8066038
@@ -2000,6 +2041,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.4485582
       objectReference: {fileID: 0}
+    - target: {fileID: 7049332996455692378, guid: 1e5ae477b7d017941be68ec35cd7252b, type: 3}
+      propertyPath: ingredientToSpawnPrefab
+      value: 
+      objectReference: {fileID: 3184142357048897101, guid: 4f75e1eeab3c9d94b924ce1b14c3b121, type: 3}
     - target: {fileID: 8562703834322610355, guid: 1e5ae477b7d017941be68ec35cd7252b, type: 3}
       propertyPath: m_Color.b
       value: 0.8066038
@@ -2172,6 +2217,41 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -32}
   m_SizeDelta: {x: 2360, y: 1984}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1089846167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1089846168}
+  m_Layer: 5
+  m_Name: TrashBinZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1089846168
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089846167}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 665337339}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -770.09216, y: -385.4856}
+  m_SizeDelta: {x: 666.6334, y: 236.5488}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1101458810
 GameObject:
@@ -2694,7 +2774,7 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
+  m_ReverseArrangement: 1
 --- !u!114 &1356591868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2714,6 +2794,7 @@ MonoBehaviour:
   - {fileID: 2802810674681928113, guid: 1a85a9194049fb84bbadd05d510b309f, type: 3}
   - {fileID: 2802810674681928113, guid: 7e1917318af6fa043b84bbb26821882a, type: 3}
   - {fileID: 2802810674681928113, guid: 7e1917318af6fa043b84bbb26821882a, type: 3}
+  trashZone: {fileID: 361297889}
   maxIngredientCount: 6
 --- !u!1001 &1364556588
 PrefabInstance:
@@ -3190,6 +3271,7 @@ MonoBehaviour:
   Zones: {fileID: 665337339}
   WorkspaceZone: {fileID: 2007200685}
   AssemblyZone: {fileID: 25089377}
+  TrashBinZone: {fileID: 1089846168}
   spawnPosition: {fileID: 1649326346}
   Burger: {fileID: 1356591868}
 --- !u!1001 &1837742544
@@ -3777,6 +3859,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.4485582
       objectReference: {fileID: 0}
+    - target: {fileID: 7049332996455692378, guid: 1e5ae477b7d017941be68ec35cd7252b, type: 3}
+      propertyPath: ingredientToSpawnPrefab
+      value: 
+      objectReference: {fileID: 3184142357048897101, guid: 1a85a9194049fb84bbadd05d510b309f, type: 3}
     - target: {fileID: 8562703834322610355, guid: 1e5ae477b7d017941be68ec35cd7252b, type: 3}
       propertyPath: m_Color.b
       value: 0.8066038
