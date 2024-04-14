@@ -5,6 +5,7 @@ using Script;
 using Script.Scroll;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Ingredient : MonoBehaviour, IDragHandler, IEndDragHandler
 {
@@ -18,17 +19,19 @@ public class Ingredient : MonoBehaviour, IDragHandler, IEndDragHandler
         draggableObjectRectTransform = gameObject.GetComponent<RectTransform>();
         lastFixedPosition = draggableObjectRectTransform.anchoredPosition;
     }
-
-    public virtual void OnDrag(PointerEventData eventData)
-    {
-        draggableObjectRectTransform.anchoredPosition += eventData.delta;
-    }
-
+  
     private void OnIngredientDestroy()
     {
         Destroy(gameObject);
     }
 
+    public virtual void OnDrag(PointerEventData eventData)
+    {
+        Vector2 sensitivity = new Vector2(Screen.width / GameManager.Instance.ReferenceWidth, Screen.height / GameManager.Instance.ReferenceHeight);
+        draggableObjectRectTransform.anchoredPosition += eventData.delta * sensitivity;
+        //draggableObjectRectTransform.anchoredPosition += eventData.delta;
+    }
+    
     public void OnEndDrag(PointerEventData eventData)
     {
         if (OverlapsWithZone(GameManager.Instance.TrashBinZone))

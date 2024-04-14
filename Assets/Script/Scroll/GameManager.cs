@@ -10,6 +10,8 @@ namespace Script.Scroll
 {
     public class GameManager : MonoBehaviour
     {
+        public int ReferenceWidth;
+        public int ReferenceHeight;
         [Header("Delays")]
         public int DelayBetweenChars;
         public int DelayBeforeBoardUpdated = 2000;

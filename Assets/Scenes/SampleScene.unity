@@ -435,7 +435,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1180, y: 1024}
+  m_ReferenceResolution: {x: 944, y: 819}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1091,7 +1091,7 @@ RectTransform:
   m_Father: {fileID: 1428652118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1860,14 +1860,14 @@ RectTransform:
   m_GameObject: {fileID: 458989636}
   m_LocalRotation: {x: -0, y: -0, z: -0.70710576, w: 0.70710784}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.49999997, y: 0.49999997, z: 0.49999997}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 68562209}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 558, y: 295}
+  m_AnchoredPosition: {x: 446.00003, y: 224.29105}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &458989638
@@ -2123,7 +2123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 0}
 --- !u!1001 &619004449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2295,7 +2294,7 @@ RectTransform:
   m_Father: {fileID: 974053711}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2735,7 +2734,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c7913ecaed14c27bcaab6a97765a622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeType: 1
 --- !u!1001 &862358942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3602,7 +3600,7 @@ RectTransform:
   m_Father: {fileID: 162171217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4264,7 +4262,7 @@ RectTransform:
   m_GameObject: {fileID: 1101458810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1371650216}
@@ -4273,10 +4271,10 @@ RectTransform:
   - {fileID: 1083417307}
   m_Father: {fileID: 2055892770}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.0061523}
-  m_SizeDelta: {x: 2360, y: 2048}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1131904268
 PrefabInstance:
@@ -4599,9 +4597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9944f076db22b814eb1f85be4c17808a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolume: 1
-  musicVolume: 1
-  SFXVolume: 1
 --- !u!1001 &1256497722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5152,7 +5147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c7913ecaed14c27bcaab6a97765a622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeType: 2
 --- !u!1 &1387223047
 GameObject:
   m_ObjectHideFlags: 0
@@ -5317,20 +5311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89630166ad2bb914e872e3cd40f1e0b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <defaultMusic>k__BackingField:
-    Guid:
-      Data1: -1191945453
-      Data2: 1327734737
-      Data3: 1227123900
-      Data4: -1491601460
-    Path: event:/Music/GameMusic
-  <skypeMessageSound>k__BackingField:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
 --- !u!1 &1428652117
 GameObject:
   m_ObjectHideFlags: 0
@@ -5542,7 +5522,7 @@ RectTransform:
   m_Father: {fileID: 138730608}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5972,6 +5952,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b19b0d35214cbfb1da6b0f75589100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ReferenceWidth: 314
+  ReferenceHeight: 273
   DelayBetweenChars: 5000
   DelayBeforeBoardUpdated: 2000
   DelayAfterSpeech: 2000
@@ -6660,8 +6642,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeScreenButton: {fileID: 1848554908}
-  slideDownAmount: 900
-  slideUpAmount: 515
+  slideDownAmount: 720
+  slideUpAmount: 410
   slideDuration: 0.2
   screensObject: {fileID: 1101458810}
 --- !u!1 &1849009875
@@ -7047,7 +7029,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2031406082
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7057,18 +7039,18 @@ RectTransform:
   m_GameObject: {fileID: 2031406081}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.49999997, y: 0.49999997, z: 0.49999997}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 859914892}
   - {fileID: 1381619151}
   m_Father: {fileID: 68562209}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 266, y: 333.70898}
-  m_SizeDelta: {x: 1056.2273, y: 310.0168}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -11, y: 229}
+  m_SizeDelta: {x: 1056.2273, y: 310.01685}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &2031406083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7156,9 +7138,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 1
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1180, y: 1024}
+  m_ReferenceResolution: {x: 2360, y: 2048}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

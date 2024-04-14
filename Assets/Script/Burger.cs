@@ -83,7 +83,9 @@ namespace Script
         }
         public virtual void OnDrag(PointerEventData eventData)
         {
-            draggableObjectRectTransform.anchoredPosition += eventData.delta;
+            Vector2 sensitivity = new Vector2(Screen.width / GameManager.Instance.ReferenceWidth, Screen.height / GameManager.Instance.ReferenceHeight);
+            draggableObjectRectTransform.anchoredPosition += eventData.delta * sensitivity;
+            //draggableObjectRectTransform.anchoredPosition += eventData.delta;
             GameManager.Instance.Pentagram.IsActive = false;
         }
         
