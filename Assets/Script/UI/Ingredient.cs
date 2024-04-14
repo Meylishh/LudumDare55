@@ -31,16 +31,17 @@ public class Ingredient : MonoBehaviour, IDragHandler, IEndDragHandler
         draggableObjectRectTransform.anchoredPosition += eventData.delta * sensitivity;
         //draggableObjectRectTransform.anchoredPosition += eventData.delta;
     }
-    
-    public void OnEndDrag(PointerEventData eventData)
+
+    private void Update()
     {
         if (OverlapsWithZone(GameManager.Instance.TrashBinZone))
         {
             OnIngredientDestroy();
+            AudioManager.Instance.PlaySFX("FireTrash");
             return;
         }
 
-        if (OverlapsWithZone(GameManager.Instance.AssemblyZone))
+        if (OverlapsWithZone(GameManager.Instance.AssemblyZone) && !GameManager.Instance.Burger.AssembleFull)
         {
             GameManager.Instance.Burger.AddIngredient(gameObject);
             return;
@@ -52,7 +53,7 @@ public class Ingredient : MonoBehaviour, IDragHandler, IEndDragHandler
         }
         draggableObjectRectTransform.anchoredPosition = lastFixedPosition;
     }
-    
+
     private bool OverlapsWithZone(RectTransform zoneRect)
     {
         if (RectTransformUtility.RectangleContainsScreenPoint(draggableObjectRectTransform, zoneRect.position) 
@@ -63,6 +64,10 @@ public class Ingredient : MonoBehaviour, IDragHandler, IEndDragHandler
         
         return false;
     }
-    
 
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        
+    }
 }

@@ -50,7 +50,8 @@ namespace Script
              {
                  Debug.Log("Incorrect :(");
              }
-
+             AudioManager.Instance.PlaySFX("TeleportToTable");
+             
              await GameManager.Instance.GameLoopManager.FinishSession();
              await GameManager.Instance.GameLoopManager.StartSession();
          }

@@ -35,9 +35,10 @@ public class Character : MonoBehaviour
     }
     private async UniTask CharacterMakeOrder()
     {
+        AudioManager.Instance.PlaySFX("FootSteps");
         textBubble.SetActive(true);
         await textBubble.transform.DOScale(1.2f, 0.2f).SetLoops(2, LoopType.Yoyo);
-        await UniTask.Delay(500);
+        await UniTask.Delay(300);
         await text.StartTyping();
         await UniTask.Delay(GameManager.Instance.DelayBeforeBoardUpdated);
         
@@ -56,6 +57,7 @@ public class Character : MonoBehaviour
     {
         await gameObject.transform.DOScale(0.8f, 0.2f);
         gameObject.SetActive(false);
+        AudioManager.Instance.PlaySFX("FootSteps");
         characterAtTable.SetActive(true);
     }
     

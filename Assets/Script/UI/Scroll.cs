@@ -58,7 +58,7 @@ public class Scroll : MonoBehaviour
 
     private void OnClickRune()
     {
-        AudioManager.Instance.PlaySFX("");
+        AudioManager.Instance.PlaySFX("FoodSpawn");
         OnClickRuneAsync().Forget();
     }
     private async UniTask OnClickRuneAsync()

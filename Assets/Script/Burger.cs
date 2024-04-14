@@ -21,6 +21,7 @@ namespace Script
         private int currentIngredientCount;
 
         private Character currentChar;
+        public bool AssembleFull { get; private set; }
         private void Start()
         {
             draggableObjectRectTransform = gameObject.GetComponent<RectTransform>();
@@ -46,7 +47,7 @@ namespace Script
             }
             else
             {
-                //todo: message or animation of that you can't add more ingredients
+                AssembleFull = true;
                 Debug.Log("Max ingredients reached");
             }
         }
@@ -80,6 +81,7 @@ namespace Script
                 DestroyImmediate(transform.GetChild(0).gameObject);
             }
             draggableObjectRectTransform.anchoredPosition = originalPosition;
+            AssembleFull = false;
         }
         public virtual void OnDrag(PointerEventData eventData)
         {
@@ -94,6 +96,7 @@ namespace Script
             if (OverlapsWithZone(trashZone))
             {
                 OnBurgerDestroy();
+                AudioManager.Instance.PlaySFX("FireTrash");
                 return;
             }
             
