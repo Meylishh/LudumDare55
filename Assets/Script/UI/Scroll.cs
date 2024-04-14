@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using Script;
 using Script.Scroll;
 using UnityEngine;
 using UnityEngine.UI;
@@ -57,6 +58,7 @@ public class Scroll : MonoBehaviour
 
     private void OnClickRune()
     {
+        AudioManager.Instance.PlaySFX("");
         OnClickRuneAsync().Forget();
     }
     private async UniTask OnClickRuneAsync()
