@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Script.Scroll
 {
-    public class IngredientBank : MonoBehaviour
+    public class GameManager : MonoBehaviour
     {
         public RectTransform Zones;
         public RectTransform WorkspaceZone;
@@ -15,7 +15,8 @@ namespace Script.Scroll
 
         public Burger Burger;
         public Pentagram Pentagram;
-        public static IngredientBank Instance { get; private set; }
+        public IngredientBoard IngredientBoard;
+        public static GameManager Instance { get; private set; }
 
         private void Awake()
         {

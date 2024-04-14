@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Script;
 using Script.Scroll;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Ingredient : MonoBehaviour, IDragHandler, IEndDragHandler
 {
+    public IngredientName name;
     private RectTransform draggableObjectRectTransform;
     private Vector2 lastFixedPosition;
     
@@ -28,19 +30,19 @@ public class Ingredient : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        if (OverlapsWithZone(IngredientBank.Instance.TrashBinZone))
+        if (OverlapsWithZone(GameManager.Instance.TrashBinZone))
         {
             OnIngredientDestroy();
             return;
         }
 
-        if (OverlapsWithZone(IngredientBank.Instance.AssemblyZone))
+        if (OverlapsWithZone(GameManager.Instance.AssemblyZone))
         {
-            IngredientBank.Instance.Burger.AddIngredient(gameObject);
+            GameManager.Instance.Burger.AddIngredient(gameObject);
             return;
         }
         
-        if (OverlapsWithZone(IngredientBank.Instance.WorkspaceZone))
+        if (OverlapsWithZone(GameManager.Instance.WorkspaceZone))
         {
             lastFixedPosition = draggableObjectRectTransform.anchoredPosition;
         }

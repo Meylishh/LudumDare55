@@ -61,7 +61,7 @@ public class Scroll : MonoBehaviour
     }
     private async UniTask OnClickRuneAsync()
     {
-        IngredientBank.Instance.InstantiateIngredient(ingredientToSpawnPrefab);
+        GameManager.Instance.InstantiateIngredient(ingredientToSpawnPrefab);
     }
     
     

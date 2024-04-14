@@ -9,9 +9,9 @@ namespace Script
 {
     public class Burger: MonoBehaviour, IDragHandler, IEndDragHandler
     {
-        [SerializeField] private List<Ingredient> correctIngredients;
+        [SerializeField] private List<IngredientName> correctIngredients;
         [SerializeField] private RectTransform trashZone;
-        private List<Ingredient> currentIngredients = new();
+        public List<IngredientName> currentIngredients = new();
             
         private RectTransform draggableObjectRectTransform;
         private Vector2 originalPosition;
@@ -34,7 +34,7 @@ namespace Script
                 
                 ingredientObject.transform.SetParent(gameObject.transform);
                 var ingredient = ingredientObject.GetComponent<Ingredient>();
-                currentIngredients.Add(ingredient);
+                currentIngredients.Add(ingredient.name);
             
                 ingredient.enabled = false;
                 currentIngredientCount++;
@@ -52,7 +52,7 @@ namespace Script
             if (currentIngredientCount == maxIngredientCount)
             {
                 //todo: pentagram activation and send burger
-                IngredientBank.Instance.Pentagram.IsActive = true;
+                GameManager.Instance.Pentagram.IsActive = true;
             }
         }
 
@@ -82,7 +82,7 @@ namespace Script
         public virtual void OnDrag(PointerEventData eventData)
         {
             draggableObjectRectTransform.anchoredPosition += eventData.delta;
-            IngredientBank.Instance.Pentagram.IsActive = false;
+            GameManager.Instance.Pentagram.IsActive = false;
         }
         
         public void OnEndDrag(PointerEventData eventData)
@@ -96,7 +96,7 @@ namespace Script
             draggableObjectRectTransform.anchoredPosition = originalPosition;
             if (currentIngredientCount == maxIngredientCount)
             {
-                IngredientBank.Instance.Pentagram.IsActive = true;
+                GameManager.Instance.Pentagram.IsActive = true;
             }
         }
         

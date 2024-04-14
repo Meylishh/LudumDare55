@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using Script.Scroll;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,7 +40,7 @@ namespace Script
 
          private void OnSendBurgerButtonPress()
          {
-             if (IngredientBank.Instance.Burger.CorrectAssembly())
+             if (GameManager.Instance.Burger.CorrectAssembly())
              {
                  Debug.Log("Correct burger :D");
              }
@@ -47,6 +48,12 @@ namespace Script
              {
                  Debug.Log("Incorrect :(");
              }
+             //todo: burger mega send to churka
+         }
+
+         private async UniTask SendBurgerAsync()
+         {
+             
          }
          private void ActivatePentagram()
         {
