@@ -52,14 +52,11 @@ namespace Script
             if (currentIngredientCount == maxIngredientCount)
             {
                 //todo: pentagram activation and send burger
-                if (CorrectAssembly())
-                {
-                    //todo: happy customer
-                }
+                IngredientBank.Instance.Pentagram.IsActive = true;
             }
         }
 
-        private bool CorrectAssembly()
+        public bool CorrectAssembly()
         {
             for (int i = 0; i < correctIngredients.Count; i++)
             {
@@ -79,10 +76,13 @@ namespace Script
                 DestroyImmediate(transform.GetChild(0).gameObject);
             }
             draggableObjectRectTransform.anchoredPosition = originalPosition;
+            
+
         }
         public virtual void OnDrag(PointerEventData eventData)
         {
             draggableObjectRectTransform.anchoredPosition += eventData.delta;
+            IngredientBank.Instance.Pentagram.IsActive = false;
         }
         
         public void OnEndDrag(PointerEventData eventData)
@@ -94,6 +94,10 @@ namespace Script
             }
             
             draggableObjectRectTransform.anchoredPosition = originalPosition;
+            if (currentIngredientCount == maxIngredientCount)
+            {
+                IngredientBank.Instance.Pentagram.IsActive = true;
+            }
         }
         
         
