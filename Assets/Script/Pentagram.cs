@@ -9,8 +9,8 @@ namespace Script
 {
     public class Pentagram: MonoBehaviour
     {
-        [SerializeField] private Color inactiveColor;
-        [SerializeField] private Color activeColor;
+        [SerializeField] private Sprite inactiveImage;
+        [SerializeField] private Sprite activeImage;
         [SerializeField] private Button sendBurgerButton;
         [SerializeField] private Image image;
 
@@ -34,7 +34,7 @@ namespace Script
 
          private void Start()
          {
-             image.color = inactiveColor;
+             image.sprite = inactiveImage;
              sendBurgerButton.interactable = false;
              sendBurgerButton.onClick.AddListener(OnSendBurgerButtonPress);
          }
@@ -71,14 +71,14 @@ namespace Script
          }
          private void ActivatePentagram()
         {
-            image.color = activeColor;
+            image.sprite = activeImage;
             //todo: button/pentagram activation animation
             sendBurgerButton.interactable = true;
         }
 
         private void DisablePentagram()
         {
-            image.color = inactiveColor;
+            image.sprite = inactiveImage;
             sendBurgerButton.interactable = false;
         }
     }
