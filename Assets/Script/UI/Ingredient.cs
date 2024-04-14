@@ -21,29 +21,57 @@ public class Ingredient : MonoBehaviour, IDragHandler, IEndDragHandler
         draggableObjectRectTransform.anchoredPosition += eventData.delta;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    private void OnIngredientDestroy()
     {
-        CheckOverlapWithZone(IngredientBank.Instance.WorkspaceZone);
+        Destroy(gameObject);
     }
 
-    private void CheckOverlapWithZone(RectTransform zoneRect)
+    public void OnEndDrag(PointerEventData eventData)
     {
-        var childPosition = draggableObjectRectTransform.localPosition;
-        var parentMin = zoneRect.rect.min;
-        var parentMax = zoneRect.rect.max;
-
-        if (childPosition.x < parentMin.x || childPosition.x > parentMax.x ||
-            childPosition.y < parentMin.y || childPosition.y > parentMax.y)
+        //todo: check overlap with trash bin
+        /*if (OverlapsWithAssembly(IngredientBank.Instance.AssemblyZone))
         {
-            Debug.Log("Child image has left the bounds of the parent image.");
-
+            Debug.Log("Assembly overlap");
+            return;
+        }
+        
+        if (!OverlapsWithWorkspace(IngredientBank.Instance.WorkspaceZone))
+        {
             draggableObjectRectTransform.anchoredPosition = lastFixedPosition;
         }
         else
         {
             lastFixedPosition = draggableObjectRectTransform.anchoredPosition;
             draggableObjectRectTransform.anchoredPosition = lastFixedPosition;
+        }*/
+
+        if (OverlapsWithZone(IngredientBank.Instance.AssemblyZone))
+        {
+            IngredientBank.Instance.Burger.AddIngredient(gameObject);
+            return;
+        }
+        
+        if (OverlapsWithZone(IngredientBank.Instance.WorkspaceZone))
+        {
+            lastFixedPosition = draggableObjectRectTransform.anchoredPosition;
+        }
+        draggableObjectRectTransform.anchoredPosition = lastFixedPosition;
+    }
+    
+    private bool OverlapsWithZone(RectTransform zoneRect)
+    {
+        if (RectTransformUtility.RectangleContainsScreenPoint(draggableObjectRectTransform, zoneRect.position) 
+            || RectTransformUtility.RectangleContainsScreenPoint(zoneRect, draggableObjectRectTransform.position))
+        {
+            Debug.Log("Images overlap!");
+            return true;
+        }
+        else
+        {
+            Debug.Log("Images do not overlap.");
+            return false;
         }
     }
     
+
 }

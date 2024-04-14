@@ -10,7 +10,7 @@ namespace Script
     public class Burger: MonoBehaviour, IDragHandler, IEndDragHandler
     {
         [SerializeField] private List<Ingredient> correctIngredients;
-        private List<Ingredient> currentIngredients;
+        private List<Ingredient> currentIngredients = new();
             
         private RectTransform draggableObjectRectTransform;
         private Vector2 originalPosition;
@@ -28,7 +28,7 @@ namespace Script
             OnIngredientAdded += CheckIngredients;
         }
 
-        private void AddIngredient(GameObject ingredientObject)
+        public void AddIngredient(GameObject ingredientObject)
         {
             ingredientObject.transform.SetParent(gameObject.transform);
             var ingredient = ingredientObject.GetComponent<Ingredient>();
@@ -48,7 +48,6 @@ namespace Script
                 {
                     //todo: happy customer
                 }
-                
             }
         }
 
@@ -66,15 +65,21 @@ namespace Script
         {
             currentIngredients.Clear();
             currentIngredientCount = 0;
+            
+            while (transform.childCount > 0)
+            {
+                DestroyImmediate(transform.GetChild(0).gameObject);
+            }
+            draggableObjectRectTransform.anchoredPosition = originalPosition;
         }
         public virtual void OnDrag(PointerEventData eventData)
         {
             draggableObjectRectTransform.anchoredPosition += eventData.delta;
         }
-    
-        //todo: Check if overlaps with trash bin 
+        
         public void OnEndDrag(PointerEventData eventData)
         {
+            //todo: Check if overlaps with trash bin 
             draggableObjectRectTransform.anchoredPosition = originalPosition;
         }
         
