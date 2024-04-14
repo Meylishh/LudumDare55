@@ -2014,12 +2014,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterOrder:
-  - "\u0412\u0435\u0440\u0445\u043D\u044F\u044F \u0431\u0443\u043B\u043A\u0430"
-  - "\u041A\u0440\u044B\u0441\u0438\u043D\u0430\u044F \u043A\u043E\u0442\u043B\u0435\u0442\u0430"
-  - "\u0421\u0432\u0435\u043A\u043B\u0430"
-  - "\u041B\u0438\u0441\u0442 \u0449\u0430\u0432\u0435\u043B\u044F"
-  - "\u0422\u0430\u0440\u0430\u043A\u0430\u043D\u044C\u0438 \u0441\u043F\u0435\u0446\u0438\u0438"
-  - "\u041D\u0438\u0436\u043D\u044F\u044F \u0431\u0443\u043B\u043A\u0430"
+  - Top bun
+  - Rat patty
+  - Beet
+  - Sorrel leaf
+  - "\u0421ockroach spices"
+  - Bottom bun
   CharacterTable: {fileID: 1838895148}
   BurgerScaleOnTable: 0.2
   characterAtTable: {fileID: 1849009875}
@@ -8215,12 +8215,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterOrder:
-  - "\u0412\u0435\u0440\u0445\u043D\u044F\u044F \u0431\u0443\u043B\u043A\u0430"
-  - "\u0420\u044B\u0431\u043D\u0430\u044F \u043A\u043E\u0442\u043B\u0435\u0442\u0430"
-  - "\u041A\u043E\u0440\u043D\u0438\u0448\u043E\u043D\u044B"
-  - "\u0421\u044B\u0440 \u0441 \u043F\u043B\u0435\u0441\u0435\u043D\u044C\u044E"
-  - "\u0421\u043E\u0443\u0441 \u041C\u0445\u043E\u043C\u0442"
-  - "\u041D\u0438\u0436\u043D\u044F\u044F \u0431\u0443\u043B\u043A\u0430"
+  - Top bun
+  - Blob-fish patty
+  - Pickles
+  - Blue cheese
+  - "\xABMkhomt\xBB sauce"
+  - Bottom bun
   CharacterTable: {fileID: 402760721}
   BurgerScaleOnTable: 0.2
   characterAtTable: {fileID: 2021645540}
