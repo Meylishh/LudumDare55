@@ -1,5 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using Script.Scroll;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +15,6 @@ namespace Script
         [SerializeField] private Image image;
 
         private bool isActive;
-
         public bool IsActive
         {
             get => isActive;
@@ -35,30 +35,43 @@ namespace Script
          private void Start()
          {
              image.color = inactiveColor;
+             sendBurgerButton.interactable = false;
              sendBurgerButton.onClick.AddListener(OnSendBurgerButtonPress);
          }
 
-         private void OnSendBurgerButtonPress()
+         private async void OnSendBurgerButtonPress()
          {
              if (GameManager.Instance.Burger.CorrectAssembly())
              {
+                 //todo: change sprite based on this
                  Debug.Log("Correct burger :D");
              }
              else
              {
                  Debug.Log("Incorrect :(");
              }
-             //todo: burger mega send to churka
+
+             await GameManager.Instance.GameLoopManager.FinishSession();
+             await GameManager.Instance.GameLoopManager.StartSession();
          }
 
-         private async UniTask SendBurgerAsync()
+         public async UniTask SendBurgerAsync(Character character)
          {
+             var burgerObj = GameManager.Instance.Burger.gameObject;
              
+             await burgerObj.transform.DOScale(1.2f, 0.2f).SetLoops(2, LoopType.Yoyo);
+             
+             var burgerOnTable = Instantiate(burgerObj, character.CharacterTable.transform);
+             burgerOnTable.GetComponent<Burger>().enabled = false;
+             burgerOnTable.transform.DOScale(character.BurgerScaleOnTable, 0f);
+             
+             GameManager.Instance.Burger.OnBurgerDestroy();
+             isActive = false;
          }
          private void ActivatePentagram()
         {
             image.color = activeColor;
-            //todo: button activation animation
+            //todo: button/pentagram activation animation
             sendBurgerButton.interactable = true;
         }
 

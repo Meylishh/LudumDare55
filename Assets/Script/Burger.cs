@@ -8,22 +8,26 @@ using UnityEngine.EventSystems;
 namespace Script
 {
     public class Burger: MonoBehaviour, IDragHandler, IEndDragHandler
-    {
-        [SerializeField] private List<IngredientName> correctIngredients;
+    { 
         [SerializeField] private RectTransform trashZone;
-        public List<IngredientName> currentIngredients = new();
+
+        public List<string> correctIngredients { get; set; }
+        public List<string> currentIngredients { get; set; } = new();
             
         private RectTransform draggableObjectRectTransform;
         private Vector2 originalPosition;
 
         [SerializeField] private int maxIngredientCount;
         private int currentIngredientCount;
-        
-        
+
+        private Character currentChar;
         private void Start()
         {
             draggableObjectRectTransform = gameObject.GetComponent<RectTransform>();
             originalPosition = draggableObjectRectTransform.anchoredPosition;
+
+            currentChar = GameManager.Instance.CurrentCharacter;
+            correctIngredients = currentChar.CharacterOrder;
         }
 
         public void AddIngredient(GameObject ingredientObject)
@@ -34,7 +38,7 @@ namespace Script
                 
                 ingredientObject.transform.SetParent(gameObject.transform);
                 var ingredient = ingredientObject.GetComponent<Ingredient>();
-                currentIngredients.Add(ingredient.name);
+                currentIngredients.Add(ingredient.Name);
             
                 ingredient.enabled = false;
                 currentIngredientCount++;
@@ -60,13 +64,13 @@ namespace Script
         {
             for (int i = 0; i < correctIngredients.Count; i++)
             {
-                if (correctIngredients[i] != currentIngredients[i])
+                if (currentIngredients[i] != correctIngredients[i])
                     return false;
             }
             return true;
         }
-
-        private void OnBurgerDestroy()
+        
+        public void OnBurgerDestroy()
         {
             currentIngredients.Clear();
             currentIngredientCount = 0;
@@ -76,8 +80,6 @@ namespace Script
                 DestroyImmediate(transform.GetChild(0).gameObject);
             }
             draggableObjectRectTransform.anchoredPosition = originalPosition;
-            
-
         }
         public virtual void OnDrag(PointerEventData eventData)
         {
@@ -109,7 +111,6 @@ namespace Script
                 return true;
             }
 
-            Debug.Log("Images do not overlap.");
             return false;
         }
     }

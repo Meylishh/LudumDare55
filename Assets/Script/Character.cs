@@ -7,47 +7,56 @@ using Script;
 using Script.Scroll;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Character : MonoBehaviour
 {
+    public List<string> CharacterOrder; 
+    public GameObject CharacterTable; 
+    public float BurgerScaleOnTable;
+    [SerializeField] private GameObject characterAtTable;
     [SerializeField] private GameObject textBubble;
     [SerializeField] private TypeWriterText text;
 
-    [SerializeField] private List<IngredientName> characterOrder;
 
     private void Start()
     {
         textBubble.SetActive(false);
-        CharacterAppear().Forget();
+        gameObject.SetActive(false);
+        characterAtTable.SetActive(false);
     }
 
-    public async UniTask CharacterAppear()
+    public async UniTask CharacterAppearAsync()
     {
-        await CharacterAppearAsync();
-
-        await SpeechStart();
-        await GameManager.Instance.IngredientBoard.UpdateBoardAsync(characterOrder);
-        await UniTask.Delay(1500);
-        await SpeechEnd();
-    }
-
-    private async UniTask CharacterAppearAsync()
-    {
+        gameObject.SetActive(true);
         await gameObject.transform.DOScale(1.1f, 0.1f).SetLoops(2, LoopType.Yoyo);
+
+        await CharacterMakeOrder();
     }
-    private async UniTask SpeechStart()
+    private async UniTask CharacterMakeOrder()
     {
         textBubble.SetActive(true);
-        await textBubble.transform.DOScale(1.2f, 0.1f).SetLoops(2, LoopType.Yoyo);
+        await textBubble.transform.DOScale(1.2f, 0.2f).SetLoops(2, LoopType.Yoyo);
+        await UniTask.Delay(500);
         await text.StartTyping();
-        await UniTask.Delay(3000);
+        await UniTask.Delay(GameManager.Instance.DelayBeforeBoardUpdated);
+        
+        await GameManager.Instance.IngredientBoard.UpdateBoardAsync(CharacterOrder);
+        await UniTask.Delay(GameManager.Instance.DelayAfterSpeech);
+        
+        await textBubble.transform.DOScale(0.8f, 0.2f);
+        textBubble.SetActive(false);
+        
+        await UniTask.Delay(GameManager.Instance.DelayBeforeMoveToTable);
+        await CharacterMoveToTable();
+        //todo: char goes to their table
     }
 
-    private async UniTask SpeechEnd()
+    private async UniTask CharacterMoveToTable()
     {
-        await textBubble.transform.DOScale(0.9f, 0.1f);
-        textBubble.SetActive(false);
-        //todo: char goes to their table
-        
+        await gameObject.transform.DOScale(0.8f, 0.2f);
+        gameObject.SetActive(false);
+        characterAtTable.SetActive(true);
     }
+    
 }

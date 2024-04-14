@@ -17,11 +17,11 @@ namespace Script
             ClearBoardAsync().Forget();
         }
 
-        public async UniTask UpdateBoardAsync(List<IngredientName> ingredientNames)
+        public async UniTask UpdateBoardAsync(List<string> ingredientNames)
         {
             for (int i = 0; i < ingredientNames.Count; i++)
             {
-                await AddLine(ingredientsTexts[i], Enum.GetName(typeof(IngredientName), ingredientNames[i]));
+                await AddLine(ingredientsTexts[i], ingredientNames[i]);
             }
         }
 

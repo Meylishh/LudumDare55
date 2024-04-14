@@ -9,6 +9,7 @@ using UnityEngine.EventSystems;
 public class Ingredient : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     public IngredientName name;
+    public string Name;
     private RectTransform draggableObjectRectTransform;
     private Vector2 lastFixedPosition;
     
@@ -56,8 +57,7 @@ public class Ingredient : MonoBehaviour, IDragHandler, IEndDragHandler
         {
             return true;
         }
-
-        Debug.Log("Images do not overlap.");
+        
         return false;
     }
     
