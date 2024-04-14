@@ -1373,7 +1373,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.033
+  m_Volume: 0.218
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5041,7 +5041,7 @@ MonoBehaviour:
   - Name: FireTrash
     Clip: {fileID: 8300000, guid: 1bb53b9db0f1f4e459573d3de52f4673, type: 3}
   - Name: FoodSpawn
-    Clip: {fileID: 8300000, guid: 36954139faa07e34783855fe84afa68e, type: 3}
+    Clip: {fileID: 8300000, guid: efb7bf629fde0554681699f9a0485938, type: 3}
   - Name: FootSteps
     Clip: {fileID: 8300000, guid: 1ea0ea3523398fb4faedca21f2122a0d, type: 3}
   - Name: TeleportToTable
@@ -5913,7 +5913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1615418598
 RectTransform:
   m_ObjectHideFlags: 0
