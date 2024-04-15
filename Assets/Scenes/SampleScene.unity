@@ -4030,8 +4030,8 @@ MonoBehaviour:
   CharacterOrder:
   - Bottom bun
   - Hedgehog Patty
-  - "\xABMkhomt\xBB sauce"
   - Blue cheese
+  - "\xABMkhomt\xBB Sauce"
   - "\u0421ockroach Spices"
   - Top bun
   CharacterTable: {fileID: 402760721}
