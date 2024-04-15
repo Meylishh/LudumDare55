@@ -73,6 +73,7 @@ public class Character : MonoBehaviour
         characterAtTable.SetActive(true);
         
         CharacterAppearing = false;
+        GameManager.Instance.Burger.CheckIngredients();
     }
     
 }

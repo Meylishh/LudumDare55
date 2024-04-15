@@ -43,7 +43,7 @@ namespace Script
             
                 ingredient.enabled = false;
                 currentIngredientCount++;
-                //CheckIngredients();
+                CheckIngredients();
             }
             else
             {
@@ -52,17 +52,9 @@ namespace Script
             }
         }
 
-        private void Update()
+        public void CheckIngredients()
         {
-            CheckIngredients();
-        }
-
-        private void CheckIngredients()
-        {
-            if (currentIngredientCount == maxIngredientCount)
-            {
-                GameManager.Instance.Pentagram.IsActive = true;
-            }
+            GameManager.Instance.Pentagram.IsActive = currentIngredientCount == maxIngredientCount;
         }
 
         public bool CorrectAssembly()

@@ -36,7 +36,7 @@ namespace Script
         {
             foreach (var text in ingredientsTexts)
             {
-                UniTask.RunOnThreadPool(() => RemoveLine(text));
+                await RemoveLine(text);
             }
             await UniTask.WhenAll();
         }
