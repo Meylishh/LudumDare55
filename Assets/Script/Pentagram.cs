@@ -34,12 +34,14 @@ namespace Script
 
          private void Start()
          {
+             GameManager.OnOrderFinished += SendBurger; 
+             
              image.sprite = inactiveImage;
              sendBurgerButton.interactable = false;
              sendBurgerButton.onClick.AddListener(OnSendBurgerButtonPress);
          }
 
-         private async void OnSendBurgerButtonPress()
+         private void OnSendBurgerButtonPress()
          {
              if (GameManager.Instance.Burger.CorrectAssembly())
              {
@@ -48,15 +50,20 @@ namespace Script
              }
              else
              {
+                 //todo: FIX THAT SHIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIT
                  Debug.Log("Incorrect :(");
              }
              AudioManager.Instance.PlaySFX("TeleportToTable");
              
-             await GameManager.Instance.GameLoopManager.FinishSession();
-             await GameManager.Instance.GameLoopManager.StartSession();
+             GameManager.Instance.SwitchCharacter();
          }
 
-         public async UniTask SendBurgerAsync(Character character)
+         private void SendBurger(Character character)
+         {
+             SendBurgerAsync(character).Forget();
+         }
+
+         private async UniTask SendBurgerAsync(Character character)
          {
              if (GameManager.Instance.ChangeScreen.workspaceActive)
              {
@@ -73,11 +80,11 @@ namespace Script
              
              GameManager.Instance.Burger.OnBurgerDestroy();
              isActive = false;
+             DisablePentagram();
          }
          private void ActivatePentagram()
         {
             image.sprite = activeImage;
-            //todo: button/pentagram activation animation
             sendBurgerButton.interactable = true;
         }
 
@@ -85,6 +92,6 @@ namespace Script
         {
             image.sprite = inactiveImage;
             sendBurgerButton.interactable = false;
-        }
+        } 
     }
 }

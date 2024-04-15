@@ -24,6 +24,8 @@ namespace Script
         public bool AssembleFull { get; private set; }
         private void Start()
         {
+            GameManager.OnOrderFinished += _ => Reset();
+            
             draggableObjectRectTransform = gameObject.GetComponent<RectTransform>();
             originalPosition = draggableObjectRectTransform.anchoredPosition;
 
@@ -35,8 +37,6 @@ namespace Script
         {
             if (currentIngredientCount < maxIngredientCount)
             {
-                //todo: check if FIRST/LAST ingredient is bread
-                
                 ingredientObject.transform.SetParent(gameObject.transform);
                 var ingredient = ingredientObject.GetComponent<Ingredient>();
                 currentIngredients.Add(ingredient.Name);
@@ -56,18 +56,21 @@ namespace Script
         {
             if (currentIngredientCount == maxIngredientCount)
             {
-                //todo: pentagram activation and send burger
                 GameManager.Instance.Pentagram.IsActive = true;
             }
         }
 
         public bool CorrectAssembly()
         {
-            currentIngredients.Reverse();
+            //todo: bring back normal ingredient order?
+            //currentIngredients.Reverse();
             for (int i = 0; i < correctIngredients.Count; i++)
             {
                 if (currentIngredients[i] != correctIngredients[i])
+                {
+                    GameManager.Instance.BadEnd = true;
                     return false;
+                }
             }
             return true;
         }
@@ -88,7 +91,7 @@ namespace Script
         {
             Vector2 sensitivity = new Vector2(Screen.width / GameManager.Instance.ReferenceWidth, Screen.height / GameManager.Instance.ReferenceHeight);
             draggableObjectRectTransform.anchoredPosition += eventData.delta * sensitivity;
-            //draggableObjectRectTransform.anchoredPosition += eventData.delta;
+
             GameManager.Instance.Pentagram.IsActive = false;
         }
         
@@ -107,8 +110,12 @@ namespace Script
                 GameManager.Instance.Pentagram.IsActive = true;
             }
         }
-        
-        
+
+        private void Reset()
+        {
+            currentIngredients.Clear();
+            currentIngredientCount = 0;
+        }
         private bool OverlapsWithZone(RectTransform zoneRect)
         {
             if (RectTransformUtility.RectangleContainsScreenPoint(draggableObjectRectTransform, zoneRect.position) 

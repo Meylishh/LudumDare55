@@ -8,6 +8,7 @@ using Script.Scroll;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
@@ -35,8 +36,10 @@ public class Character : MonoBehaviour
         }
         
         gameObject.SetActive(true);
-        await gameObject.transform.DOScale(1.1f, 0.1f).SetLoops(2, LoopType.Yoyo);
 
+        var image = gameObject.GetComponent<Image>();
+        await image.DOFade(1, 0.2f).ToUniTask();
+        
         await CharacterMakeOrder();
     }
     private async UniTask CharacterMakeOrder()
@@ -55,15 +58,17 @@ public class Character : MonoBehaviour
         
         await UniTask.Delay(GameManager.Instance.DelayBeforeMoveToTable);
         await CharacterMoveToTable();
-        //todo: char goes to their table
     }
 
     private async UniTask CharacterMoveToTable()
     {
-        await gameObject.transform.DOScale(0.8f, 0.2f);
+        var image = gameObject.GetComponent<Image>();
+        await image.DOFade(0, 0.2f).ToUniTask();
         gameObject.SetActive(false);
+        
         AudioManager.Instance.PlaySFX("FootSteps");
         characterAtTable.SetActive(true);
+        
     }
     
 }

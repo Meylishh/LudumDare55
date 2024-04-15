@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using Script.Scroll;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -15,6 +16,8 @@ namespace Script
         private void Start()
         {
             ClearBoardAsync().Forget();
+
+            GameManager.OnOrderFinished += _ => ClearBoard();
         }
 
         public async UniTask UpdateBoardAsync(List<string> ingredientNames)
@@ -25,6 +28,10 @@ namespace Script
             }
         }
 
+        public void ClearBoard()
+        {
+            ClearBoardAsync().Forget();
+        }
         public async UniTask ClearBoardAsync()
         {
             foreach (var text in ingredientsTexts)
