@@ -63,6 +63,7 @@ namespace Script
 
         public bool CorrectAssembly()
         {
+            currentIngredients.Reverse();
             for (int i = 0; i < correctIngredients.Count; i++)
             {
                 if (currentIngredients[i] != correctIngredients[i])

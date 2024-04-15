@@ -69,7 +69,7 @@ namespace Script
              
              var burgerOnTable = Instantiate(burgerObj, character.CharacterTable.transform);
              burgerOnTable.GetComponent<Burger>().enabled = false;
-             burgerOnTable.transform.DOScale(character.BurgerScaleOnTable, 0f);
+             await burgerOnTable.transform.DOScale(character.BurgerScaleOnTable, 0f);
              
              GameManager.Instance.Burger.OnBurgerDestroy();
              isActive = false;

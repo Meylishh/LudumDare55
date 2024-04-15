@@ -4313,11 +4313,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1930927758}
   - {fileID: 417670980}
   - {fileID: 2136237984}
   - {fileID: 1008527317}
   - {fileID: 934220398}
-  - {fileID: 1930927758}
   - {fileID: 1296038634}
   - {fileID: 1848554907}
   - {fileID: 1832414553}
@@ -7788,7 +7788,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.039
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

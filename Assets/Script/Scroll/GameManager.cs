@@ -54,7 +54,7 @@ namespace Script.Scroll
             }
 
             Instance = this;
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(gameObject);
             
             currentCharIndex = 0;
             CurrentCharacter = Characters[currentCharIndex];
@@ -71,7 +71,7 @@ namespace Script.Scroll
         private async UniTask StartGame()
         {
             await UniTask.Delay(3000);
-            GameLoopManager.StartSession();
+            await GameLoopManager.StartSession();
         }
 
         public void SwitchCharacter()

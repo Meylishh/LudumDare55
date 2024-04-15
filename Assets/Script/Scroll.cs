@@ -68,13 +68,7 @@ public class Scroll : MonoBehaviour
     private void OnClickRune()
     {
         AudioManager.Instance.PlaySFX("FoodSpawn");
-        OnClickRuneAsync().Forget();
-    }
-    private async UniTask OnClickRuneAsync()
-    {
         GameManager.Instance.InstantiateIngredient(ingredientToSpawnPrefab);
     }
-    
-    
-    
+ 
 }
