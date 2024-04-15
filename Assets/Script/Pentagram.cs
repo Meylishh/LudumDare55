@@ -84,8 +84,11 @@ namespace Script
          }
          private void ActivatePentagram()
         {
-            image.sprite = activeImage;
-            sendBurgerButton.interactable = true;
+            if (!GameManager.Instance.CurrentCharacter.CharacterAppearing)
+            {
+                image.sprite = activeImage;
+                sendBurgerButton.interactable = true;
+            }
         }
 
         private void DisablePentagram()

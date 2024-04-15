@@ -43,13 +43,18 @@ namespace Script
             
                 ingredient.enabled = false;
                 currentIngredientCount++;
-                CheckIngredients();
+                //CheckIngredients();
             }
             else
             {
                 AssembleFull = true;
                 Debug.Log("Max ingredients reached");
             }
+        }
+
+        private void Update()
+        {
+            CheckIngredients();
         }
 
         private void CheckIngredients()

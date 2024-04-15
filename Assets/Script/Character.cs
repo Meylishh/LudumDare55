@@ -15,11 +15,11 @@ public class Character : MonoBehaviour
     public List<string> CharacterOrder; 
     public GameObject CharacterTable; 
     public float BurgerScaleOnTable;
+    public bool CharacterAppearing { get; private set; }
     [SerializeField] private GameObject characterAtTable;
     [SerializeField] private GameObject textBubble;
     [SerializeField] private TypeWriterText text;
-
-
+    
     private void Start()
     {
         textBubble.SetActive(false);
@@ -29,6 +29,8 @@ public class Character : MonoBehaviour
 
     public async UniTask CharacterAppearAsync()
     {
+        CharacterAppearing = true;
+        
         AudioManager.Instance.PlaySFX("FootSteps");
         if (GameManager.Instance.ChangeScreen.workspaceActive)
         {
@@ -69,6 +71,7 @@ public class Character : MonoBehaviour
         AudioManager.Instance.PlaySFX("FootSteps");
         characterAtTable.SetActive(true);
         
+        CharacterAppearing = false;
     }
     
 }
