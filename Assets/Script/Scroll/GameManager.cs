@@ -5,6 +5,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Script.Scroll
 {
@@ -17,6 +18,7 @@ namespace Script.Scroll
         public int DelayBeforeBoardUpdated = 2000;
         public int DelayAfterSpeech = 3000;
         public int DelayBeforeMoveToTable = 3000;
+        [SerializeField] private int spawnPentagramChangeDelay = 300;
         
         
         [Header("Zones")]
@@ -25,11 +27,15 @@ namespace Script.Scroll
         public RectTransform AssemblyZone;
         public RectTransform TrashBinZone;
         [SerializeField] private GameObject spawnPosition;
+        [SerializeField] private Sprite inactivePentagram;
+        [SerializeField] private Sprite activePentagram;
+        [SerializeField] private Image pentagram;
 
         [Header("Objects")]
         public Burger Burger;
         public Pentagram Pentagram;
         public IngredientBoard IngredientBoard;
+        public ChangeScreen ChangeScreen;
 
         [Header("Characters")] 
         public List<Character> Characters; 
@@ -56,6 +62,7 @@ namespace Script.Scroll
 
         private void Start()
         {
+            pentagram.sprite = inactivePentagram;
             
             GameLoopManager = new GameLoopManager();
             StartGame().Forget();
@@ -80,10 +87,18 @@ namespace Script.Scroll
                 Debug.Log("All characters served");
             }
         }
-        
-        public void InstantiateIngredient(GameObject ingredient)
+
+        private async UniTask LightPentagramAsync()
         {
-            Instantiate(ingredient, spawnPosition.transform.position, Quaternion.identity, Zones.transform);
+            pentagram.sprite = activePentagram;
+            await UniTask.Delay(spawnPentagramChangeDelay);
+            pentagram.sprite = inactivePentagram;
+        }
+        public async void InstantiateIngredient(GameObject ingredient)
+        {
+            LightPentagramAsync().Forget();
+            var obj = Instantiate(ingredient, spawnPosition.transform.position, Quaternion.identity, Zones.transform);
+            await obj.transform.DOScale(1.2f, 0.1f).SetLoops(2, LoopType.Yoyo).ToUniTask();
         }
     }
 }

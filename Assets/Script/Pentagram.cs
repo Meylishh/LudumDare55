@@ -58,6 +58,11 @@ namespace Script
 
          public async UniTask SendBurgerAsync(Character character)
          {
+             if (GameManager.Instance.ChangeScreen.workspaceActive)
+             {
+                 GameManager.Instance.ChangeScreen.SlideScreen();
+             }
+             
              var burgerObj = GameManager.Instance.Burger.gameObject;
              
              await burgerObj.transform.DOScale(1.2f, 0.2f).SetLoops(2, LoopType.Yoyo);

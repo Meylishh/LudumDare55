@@ -13,7 +13,7 @@ public class ChangeScreen : MonoBehaviour
     [SerializeField] private float slideUpAmount;
     [SerializeField] private float slideDuration;
     [SerializeField] private GameObject screensObject;
-    private bool workspaceActive;
+    public bool workspaceActive;
     
     //todo: slide up when a new customer comes in (non-interactive screen during?) 
     private void Start()
@@ -21,7 +21,7 @@ public class ChangeScreen : MonoBehaviour
         changeScreenButton.onClick.AddListener(SlideScreen);
     }
 
-    private void SlideScreen()
+    public void SlideScreen()
     {
         SlideScreenAsync().Forget();
     }
