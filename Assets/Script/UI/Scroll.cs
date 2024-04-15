@@ -11,21 +11,26 @@ using UnityEngine.UI;
 public class Scroll : MonoBehaviour
 {
     [Header("Scroll")]
-    [SerializeField] private GameObject scrollObject;
     [SerializeField] private Button scrollButton;
-    [SerializeField] private RectTransform scrollZone;
-    [SerializeField] private float scrollOpenDistance;
-    [SerializeField] private float scrollCloseDistance;
+    [SerializeField] private GameObject openedScroll;
+    [SerializeField] private float openedScrollFinalHeight;
     [SerializeField] private float scrollOpenTime;
 
     [Header("RuneSpawn")] 
     [SerializeField] private Button runeButton;
     [SerializeField] private GameObject ingredientToSpawnPrefab;
-    
+
+    private RectTransform openedScrollRect;
+    private float initialOpenedScrollHeight;
     private bool isOpened;
 
     private void Start()
     {
+        openedScrollRect = openedScroll.GetComponent<RectTransform>();
+        initialOpenedScrollHeight = openedScrollRect.rect.height;
+        
+        openedScroll.SetActive(false);
+        
         scrollButton.onClick.AddListener(OnClickScroll);
         runeButton.onClick.AddListener(OnClickRune);
         runeButton.interactable = false;
@@ -41,7 +46,9 @@ public class Scroll : MonoBehaviour
         if (!isOpened)
         {
             scrollButton.interactable = false;
-            await scrollZone.transform.DOScaleY(-scrollOpenDistance, scrollOpenTime);
+            openedScroll.SetActive(true);
+            await openedScrollRect.DOSizeDelta(new Vector2(openedScrollRect.rect.width, openedScrollFinalHeight), scrollOpenTime).SetEase(Ease.InOutSine);
+            
             scrollButton.interactable = true;
             isOpened = true;
             runeButton.interactable = true;
@@ -49,7 +56,9 @@ public class Scroll : MonoBehaviour
         else
         {
             scrollButton.interactable = false;
-            await scrollZone.transform.DOScaleY(scrollCloseDistance, scrollOpenTime);
+            await openedScrollRect.DOSizeDelta(new Vector2(openedScrollRect.rect.width, initialOpenedScrollHeight), scrollOpenTime).SetEase(Ease.InOutSine);
+            openedScroll.SetActive(false);
+            
             scrollButton.interactable = true;
             isOpened = false;
             runeButton.interactable = false;

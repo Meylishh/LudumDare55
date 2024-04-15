@@ -9,7 +9,6 @@ using UnityEngine.UI;
 
 public class Ingredient : MonoBehaviour, IDragHandler, IEndDragHandler
 {
-    public IngredientName name;
     public string Name;
     private RectTransform draggableObjectRectTransform;
     private Vector2 lastFixedPosition;
@@ -29,7 +28,6 @@ public class Ingredient : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         Vector2 sensitivity = new Vector2(Screen.width / GameManager.Instance.ReferenceWidth, Screen.height / GameManager.Instance.ReferenceHeight);
         draggableObjectRectTransform.anchoredPosition += eventData.delta * sensitivity;
-        //draggableObjectRectTransform.anchoredPosition += eventData.delta;
     }
 
     private void Update()
