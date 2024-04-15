@@ -2501,12 +2501,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterOrder:
-  - Top Bun
+  - Bottom Bun
   - Rat Patty
   - Beet
   - Sorrel Leaf
   - "\u0421ockroach Spices"
-  - Bottom Bun
+  - Top Bun
   CharacterTable: {fileID: 1838895148}
   BurgerScaleOnTable: 0.2
   characterAtTable: {fileID: 1849009875}
@@ -3716,12 +3716,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterOrder:
-  - Top bun
-  - Blob-fish patty
+  - Sorrel Leaf
+  - Beet
+  - Onion
   - Pickles
-  - Blue cheese
   - "\xABMkhomt\xBB sauce"
-  - Bottom bun
+  - Sorrel Leaf
   CharacterTable: {fileID: 402760721}
   BurgerScaleOnTable: 0.2
   characterAtTable: {fileID: 2021645540}
@@ -4028,12 +4028,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterOrder:
-  - Top bun
-  - Blob-fish patty
-  - Pickles
-  - Blue cheese
-  - "\xABMkhomt\xBB sauce"
   - Bottom bun
+  - Hedgehog Patty
+  - Blue cheese
+  - "\xABMkhomt\xBB Sauce"
+  - "\u0421ockroach Spices"
+  - Top bun
   CharacterTable: {fileID: 402760721}
   BurgerScaleOnTable: 0.2
   characterAtTable: {fileID: 2021645540}
@@ -8397,12 +8397,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterOrder:
-  - Top Bun
-  - Blob-Fish Patty
-  - Pickles
-  - Blue Cheese
-  - "\xABMkhomt\xBB Sauce"
   - Bottom Bun
+  - Blob-Fish Patty
+  - Blue Cheese
+  - Pickles
+  - "\xABMkhomt\xBB Sauce"
+  - Top Bun
   CharacterTable: {fileID: 402760721}
   BurgerScaleOnTable: 0.2
   characterAtTable: {fileID: 2021645540}
