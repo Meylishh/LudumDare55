@@ -64,7 +64,6 @@ public class Scroll : MonoBehaviour
             runeButton.interactable = false;
         }
     }
-
     private void OnClickRune()
     {
         AudioManager.Instance.PlaySFX("FoodSpawn");
