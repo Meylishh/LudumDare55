@@ -4744,6 +4744,8 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 1ea0ea3523398fb4faedca21f2122a0d, type: 3}
   - Name: TeleportToTable
     Clip: {fileID: 8300000, guid: c4c30a8fce0194e4da95719a6229e18f, type: 3}
+  - Name: Speech
+    Clip: {fileID: 8300000, guid: 3110836db31571a4c87453bfb1fa60f0, type: 3}
   musicSource: {fileID: 1990518765}
   sfxSource: {fileID: 356934659}
 --- !u!1001 &1189617477
@@ -7178,10 +7180,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 87d17db51c287914589112d786885315, type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 87d17db51c287914589112d786885315, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 87d17db51c287914589112d786885315, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: 87d17db51c287914589112d786885315, type: 3}
+    m_HighlightedSprite: {fileID: 21300000, guid: 5a0253f8a2d2b434d82bf55277ea653d, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: b4eb13e33115a73408a55d2f0c9597ee, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 5a0253f8a2d2b434d82bf55277ea653d, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 5a0253f8a2d2b434d82bf55277ea653d, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -7213,7 +7215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 87d17db51c287914589112d786885315, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a0253f8a2d2b434d82bf55277ea653d, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

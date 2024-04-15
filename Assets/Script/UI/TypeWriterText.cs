@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using Script;
 using TMPro;
 using UnityEngine;
 
@@ -39,6 +40,11 @@ public class TypeWriterText : MonoBehaviour
             {
                 if (Time.time - lastCharTime > delayBetweenCharacters)
                 {
+                    if (fullText[charIndex] != ' ')
+                    {
+                        AudioManager.Instance.PlaySFX("Speech");
+                    }
+                    
                     textComponent.text += fullText[charIndex];
                     charIndex++;
                     lastCharTime = Time.time;
