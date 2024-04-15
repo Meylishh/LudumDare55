@@ -96,6 +96,7 @@ namespace Script.Scroll
             {
                 Debug.Log("All characters served");
                 ShowEnding().Forget();
+                
             }
         }
         private async UniTask ShowEnding()

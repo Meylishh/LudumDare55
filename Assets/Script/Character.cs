@@ -12,6 +12,7 @@ using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
+    public GameObject MadCharacter;
     public List<string> CharacterOrder; 
     public GameObject CharacterTable; 
     public float BurgerScaleOnTable;

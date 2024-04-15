@@ -45,12 +45,11 @@ namespace Script
          {
              if (GameManager.Instance.Burger.CorrectAssembly())
              {
-                 //todo: change sprite based on this
                  Debug.Log("Correct burger :D");
              }
              else
              {
-                 //todo: FIX THAT SHIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIT
+                 MadCharAppearAsync().Forget();
                  Debug.Log("Incorrect :(");
              }
              AudioManager.Instance.PlaySFX("TeleportToTable");
@@ -58,6 +57,11 @@ namespace Script
              GameManager.Instance.SwitchCharacter();
          }
 
+         private async UniTask MadCharAppearAsync()
+         {
+             var madImage = GameManager.Instance.CurrentCharacter.MadCharacter.GetComponent<Image>();
+             await madImage.DOFade(1, 0.1f);
+         }
          private void SendBurger(Character character)
          {
              SendBurgerAsync(character).Forget();
