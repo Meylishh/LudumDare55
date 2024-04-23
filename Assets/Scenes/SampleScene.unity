@@ -2162,7 +2162,7 @@ MonoBehaviour:
   - Rat Patty
   - Beet
   - Sorrel Leaf
-  - "\u0421ockroach Spices"
+  - Cucaracha Spice
   - Top Bun
   CharacterTable: {fileID: 1838895148}
   BurgerScaleOnTable: 0.2
@@ -2539,8 +2539,8 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1
+    width: 944
+    height: 819
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -3504,7 +3504,7 @@ MonoBehaviour:
   - Hedgehog Patty
   - Blue Cheese
   - '"Mkhomt" Sauce'
-  - "\u0421ockroach Spices"
+  - Cucaracha Spice
   - Top Bun
   CharacterTable: {fileID: 1150590636}
   BurgerScaleOnTable: 0.2
@@ -7622,8 +7622,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closeButton: {fileID: 2103754927}
   openButton: {fileID: 458989640}
-  musicSlider: {fileID: 0}
-  sfxSlider: {fileID: 0}
+  musicSlider: {fileID: 1641577482}
+  sfxSlider: {fileID: 1909000275}
 --- !u!1 &2033418692
 GameObject:
   m_ObjectHideFlags: 0
@@ -7713,7 +7713,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 2360, y: 2048}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
